@@ -5,7 +5,6 @@ services:
     container_name: yuuyu-Traefik
     command:
       - "--certificatesresolvers.yuuyuresolver.acme.tlschallenge=true"
-      - "--providers.docker=true"
     volumes:
       - ./data/traefik/traefik.yml:/etc/traefik/traefik.yml
       - /var/run/docker.sock:/var/run/docker.sock
