@@ -1,0 +1,20 @@
+version: '3.7'
+services:
+    image: traefik:latest
+    volumes:
+      - ./data/traefik/traefik.yml:/etc/traefik/traefik.yml
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 80:80
+      - 443:443
+      - 8080:8080
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.wordpress.rule=Host(`traefik.yuuyu.dev`)
+      - "traefik.http.middlewares.test-auth.basicauth.users=${BASIC_AUTH}"
+    networks:
+      - yuuyu-network
+    restart: always
+networks:
+  yuuyu-network:
+    external: true
