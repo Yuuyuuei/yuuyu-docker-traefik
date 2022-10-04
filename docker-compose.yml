@@ -16,6 +16,7 @@ services:
       - 8080:8080
     labels:
       - "traefik.enable=true"
+      - "traefik.http.routers.traefik.tls=true"
       - "traefik.http.routers.traefik.rule=Host(`traefik.yuuyu.dev`)"
       - "traefik.http.routers.traefik.entrypoints=websecure"
       - "traefik.http.routers.traefik.tls.certresolver=yuuyuresolver"
