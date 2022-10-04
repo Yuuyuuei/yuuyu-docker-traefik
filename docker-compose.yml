@@ -3,8 +3,6 @@ services:
   traefik:
     image: traefik:latest
     container_name: yuuyu-Traefik
-    command:
-      - "--certificatesresolvers.yuuyuresolver.acme.tlschallenge=true"
     volumes:
       - ./data/traefik/traefik.yml:/etc/traefik/traefik.yml
       - /var/run/docker.sock:/var/run/docker.sock
@@ -15,11 +13,12 @@ services:
       - 8080:8080
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.traefik.tls=true"
       - "traefik.http.routers.traefik.rule=Host(`traefik.yuuyu.dev`)"
       - "traefik.http.routers.traefik.entrypoints=websecure"
-      - "traefik.http.routers.traefik.tls.certresolver=yuuyuresolver"
-      - "traefik.http.middlewares.traefik.basicauth.users=${BASIC_AUTH}"
+      - "traefik.http.routers.traefik.tls.certresolver=lets-encrypt"
+      - "traefik.http.routers.traefik.service=api@internal"
+      - "traefik.http.routers.dashboard.middlewares=auth"
+      - "traefik.http.middlewares.auth.basicauth.users=${BASIC_AUTH}"
     networks:
       - yuuyu-network
     restart: always
