@@ -1,6 +1,8 @@
 version: '3.7'
 services:
+  traefik:
     image: traefik:latest
+    container_name: yuuyu-Traefik
     volumes:
       - ./data/traefik/traefik.yml:/etc/traefik/traefik.yml
       - /var/run/docker.sock:/var/run/docker.sock
