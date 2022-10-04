@@ -15,4 +15,4 @@ certificatesResolvers:
       email: hello@yuuyu.dev
       storage: acme.json
       httpChallenge:
-        entryPoint: web
+        entryPoint: websecure
