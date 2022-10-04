@@ -6,9 +6,10 @@ entryPoints:
     address: :80
   websecure:
     address: :443
+providers:
   exposedByDefault: false
 certificatesResolvers:
-  myresolver:
+  yuuyuresolver:
     acme:
       email: hello@yuuyu.dev
       storage: acme.json
