@@ -13,7 +13,7 @@ services:
     labels:
       - traefik.enable=true
       - traefik.http.routers.wordpress.rule=Host(`traefik.yuuyu.dev`)
-      - "traefik.http.middlewares.test-auth.basicauth.users=${BASIC_AUTH}"
+      - traefik.http.middlewares.test-auth.basicauth.users=${BASIC_AUTH}
     networks:
       - yuuyu-network
     restart: always
