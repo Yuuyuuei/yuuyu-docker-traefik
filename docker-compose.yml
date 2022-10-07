@@ -17,7 +17,7 @@ services:
       - "traefik.http.routers.traefik.rule=Host(`traefik.yuuyu.dev`)"
       - "traefik.http.routers.traefik.entrypoints=websecure"
       - "traefik.http.routers.traefik.tls.certresolver=lets-encrypt"
-      - "traefik.http.routers.traefik.service=api@internal"
+      - "traefik.http.routers.traefik.service=traefik@internal"
       - "traefik.http.routers.traefik.middlewares=auth"
       - "traefik.http.middlewares.auth.basicauth.users=${BASIC_AUTH}"
     networks:
