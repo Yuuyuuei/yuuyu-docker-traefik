@@ -25,7 +25,7 @@ certificatesResolvers:
   lets-encrypt:
     acme:
       tlschallenge: true
-      email: hello@yuuyu.dev
+      email: admin@yuuyu.dev
       storage: acme.json
       # caserver: https://acme-staging-v02.api.letsencrypt.org/directory
       httpChallenge:
