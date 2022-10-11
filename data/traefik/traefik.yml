@@ -20,7 +20,7 @@ providers:
   docker:
     exposedByDefault: false
     watch: true
-    network: "web"
+    network: "yuuyu-network"
 certificatesResolvers:
   lets-encrypt:
     acme:
