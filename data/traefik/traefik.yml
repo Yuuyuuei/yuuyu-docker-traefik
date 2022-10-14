@@ -15,7 +15,7 @@ entryPoints:
   websecure:
     address: :443
 api:
-  dashboard: true
+  dashboard: false
 providers:
   docker:
     exposedByDefault: false
